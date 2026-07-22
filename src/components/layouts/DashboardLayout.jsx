@@ -51,7 +51,7 @@ export default function DashboardLayout({ children, sidebarOpen, setSidebarOpen 
   const SidebarInner = (
     <div className="flex h-full flex-col">
       <div className="flex items-center gap-2.5 px-5 h-16 border-b border-line dark:border-darkbg-line">
-        <div className="grid place-items-center w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-secondary text-white shadow-soft">
+        <div className="grid place-items-center w-9 h-9 rounded-xl bg-gradient-to-br from-primary-700 to-secondary text-white shadow-soft">
           <FiZap size={18} />
         </div>
         <div className="font-bold text-ink dark:text-slate-100 tracking-tight">
@@ -70,8 +70,8 @@ export default function DashboardLayout({ children, sidebarOpen, setSidebarOpen 
               className={({ isActive }) =>
                 `group flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium transition-all ${
                   isActive
-                    ? 'bg-gradient-to-r from-primary-500 via-secondary to-accent text-white shadow-soft'
-                    : 'text-ink-soft dark:text-slate-300 hover:bg-primary-50 dark:hover:bg-slate-800 hover:text-primary-600 dark:hover:text-white'
+                    ? 'bg-gradient-to-r from-primary-700 via-primary-500 to-secondary text-white shadow-soft'
+                    : 'text-ink-soft dark:text-slate-300 hover:bg-primary-50 dark:hover:bg-slate-800 hover:text-primary-700 dark:hover:text-white'
                 }`
               }
             >
@@ -83,7 +83,7 @@ export default function DashboardLayout({ children, sidebarOpen, setSidebarOpen 
       </nav>
       <div className="p-3 border-t border-line dark:border-darkbg-line">
         <div className="flex items-center gap-3 px-2.5 py-2">
-          <div className="grid place-items-center w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-500/20 text-primary-700 dark:text-indigo-200 font-semibold text-sm">
+          <div className="grid place-items-center w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-500/20 text-primary-800 dark:text-teal-100 font-semibold text-sm">
             {initials(profile?.full_name) || 'S'}
           </div>
           <div className="flex-1 min-w-0">
@@ -93,7 +93,7 @@ export default function DashboardLayout({ children, sidebarOpen, setSidebarOpen 
         </div>
         <button
           onClick={handleLogout}
-          className="mt-1 w-full flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium text-rose-600 dark:text-rose-300 hover:bg-rose-50 dark:hover:bg-rose-500/10 transition"
+          className="mt-1 w-full flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium text-stone-700 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-700/30 transition"
         >
           <FiLogOut size={18} />
           Logout
@@ -181,9 +181,9 @@ export default function DashboardLayout({ children, sidebarOpen, setSidebarOpen 
               <path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M13.7 21a2 2 0 0 1-3.4 0" strokeLinecap="round" />
             </svg>
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-rose-500" />
+            <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-teal-500" />
           </button>
-          <NavLink to="/app/settings" className="grid place-items-center w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-500/20 text-primary-700 dark:text-indigo-200 font-semibold text-sm hover:bg-primary-200 dark:hover:bg-primary-500/30 transition" aria-label="Open settings">
+          <NavLink to="/app/settings" className="grid place-items-center w-9 h-9 rounded-full bg-primary-100 dark:bg-primary-500/20 text-primary-800 dark:text-teal-100 font-semibold text-sm hover:bg-primary-200 dark:hover:bg-primary-500/30 transition" aria-label="Open settings">
             {initials(profile?.full_name) || 'S'}
           </NavLink>
         </header>

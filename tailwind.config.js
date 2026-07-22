@@ -6,30 +6,30 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#4F46E5',
-          50: '#EEF0FE',
-          100: '#DDE0FD',
-          200: '#BCC1FB',
-          300: '#9AA1F9',
-          400: '#6366F1',
-          500: '#4F46E5',
-          600: '#4338CA',
-          700: '#3730A3',
-          800: '#2E2175',
-          900: '#1A1242'
+          DEFAULT: '#0F766E',
+          50: '#EDF4F2',
+          100: '#DCEAE6',
+          200: '#B9D7D0',
+          300: '#85B8AE',
+          400: '#3F958A',
+          500: '#0F766E',
+          600: '#0B5F59',
+          700: '#0A4C48',
+          800: '#083D3A',
+          900: '#062F2D'
         },
-        secondary: { DEFAULT: '#6366F1' },
-        accent: { DEFAULT: '#8B5CF6' },
-        bg: { DEFAULT: '#F8FAFC', soft: '#F1F5F9' },
-        ink: { DEFAULT: '#0F172A', soft: '#475569', muted: '#64748B' },
-        line: '#E2E8F0',
-        darkbg: { DEFAULT: '#0F172A', surface: '#111827', card: '#1E293B', line: '#334155' }
+        secondary: { DEFAULT: '#166534' },
+        accent: { DEFAULT: '#14B8A6' },
+        bg: { DEFAULT: '#F5F7F6', soft: '#EDF4F2' },
+        ink: { DEFAULT: '#1C2526', soft: '#43504D', muted: '#5B6663' },
+        line: '#D7DDDA',
+        darkbg: { DEFAULT: '#111315', surface: '#1A1D1F', card: '#23282C', line: '#34393D' }
       },
       borderRadius: { xl2: '20px' },
       boxShadow: {
-        soft: '0 12px 30px -18px rgba(79, 70, 229, 0.45)',
-        card: '0 14px 40px -28px rgba(15, 23, 42, 0.35)',
-        lift: '0 22px 55px -34px rgba(15, 23, 42, 0.5)'
+        soft: '0 14px 34px -22px rgba(15, 118, 110, 0.55)',
+        card: '0 16px 40px -30px rgba(28, 37, 38, 0.38)',
+        lift: '0 24px 58px -36px rgba(17, 19, 21, 0.52)'
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif']

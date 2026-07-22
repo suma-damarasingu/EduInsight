@@ -45,12 +45,12 @@ export default function AIInsights() {
   }
 
   const focus = avgFocus(sessions || [])
-  const focusData = [{ name: 'focus', value: focus, fill: '#6D5DF6' }]
+  const focusData = [{ name: 'focus', value: focus, fill: '#0F766E' }]
 
   return (
     <div className="space-y-6">
       {/* Hero header */}
-      <Card className="p-6 sm:p-8 bg-gradient-to-br from-primary-500 to-secondary text-white relative overflow-hidden">
+      <Card className="p-6 sm:p-8 bg-gradient-to-br from-primary-700 to-secondary text-white relative overflow-hidden">
         <div className="absolute -right-10 -top-10 w-48 h-48 rounded-full bg-white/10" />
         <div className="absolute right-20 top-16 w-24 h-24 rounded-full bg-white/10" />
         <div className="relative flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -83,9 +83,9 @@ export default function AIInsights() {
       {result && !loading && (
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <InsightStat icon={<FiClock />} label="Focus Time" value={formatTime(totalStudyTime(sessions || []))} color="from-primary-500 to-secondary" />
-            <InsightStat icon={<FiCheckCircle />} label="Break Time" value={formatTime(totalBreakTime(sessions || []))} color="from-emerald-500 to-teal-400" />
-            <InsightStat icon={<FiAlertTriangle />} label="Distraction Time" value={formatTime(totalDistractionTime(sessions || []))} color="from-amber-500 to-orange-400" />
+            <InsightStat icon={<FiClock />} label="Focus Time" value={formatTime(totalStudyTime(sessions || []))} color="from-primary-700 to-primary-500" />
+            <InsightStat icon={<FiCheckCircle />} label="Break Time" value={formatTime(totalBreakTime(sessions || []))} color="from-secondary to-primary-600" />
+            <InsightStat icon={<FiAlertTriangle />} label="Distraction Time" value={formatTime(totalDistractionTime(sessions || []))} color="from-stone-700 to-stone-500" />
           </div>
 
           <div className="grid lg:grid-cols-3 gap-4">
@@ -96,7 +96,7 @@ export default function AIInsights() {
                   <RadialBarChart innerRadius="70%" outerRadius="100%" data={focusData} startAngle={90} endAngle={-270}>
                     <PolarAngleAxis type="number" domain={[0, 100]} tick={false} />
                     <RadialBar background dataKey="value" cornerRadius={20}>
-                      <Cell fill="#6D5DF6" />
+                      <Cell fill="#0F766E" />
                     </RadialBar>
                   </RadialBarChart>
                 </ResponsiveContainer>
@@ -119,7 +119,7 @@ export default function AIInsights() {
           {result.recommendation && (
             <Card className="p-5 bg-gradient-to-br from-primary-50 to-secondary/20 border-primary-200">
               <div className="flex items-start gap-3">
-                <div className="grid place-items-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-secondary text-white shrink-0"><FiSun size={20} /></div>
+                <div className="grid place-items-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary-700 to-secondary text-white shrink-0"><FiSun size={20} /></div>
                 <div>
                   <h3 className="font-semibold text-ink">Personalized Recommendation</h3>
                   <div className="prose-chat text-sm text-ink-soft mt-1" dangerouslySetInnerHTML={{ __html: result.recommendation }} />
@@ -130,7 +130,7 @@ export default function AIInsights() {
 
           {result.waste && (
             <Card className="p-5">
-              <h3 className="font-semibold text-ink flex items-center gap-2"><FiAlertTriangle className="text-amber-500" /> Learning Waste Detected</h3>
+              <h3 className="font-semibold text-ink flex items-center gap-2"><FiAlertTriangle className="text-stone-500" /> Learning Waste Detected</h3>
               <div className="prose-chat text-sm text-ink-soft mt-1" dangerouslySetInnerHTML={{ __html: result.waste }} />
             </Card>
           )}

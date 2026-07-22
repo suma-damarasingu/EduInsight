@@ -9,7 +9,7 @@ import { totalStudyTime, avgStudyTime } from '../lib/stats'
 import { formatTime, formatDate, todayISO, focusScore, efficiency } from '../lib/utils'
 import { useToast } from '../context/ToastContext'
 
-const SUBJECT_COLORS = ['#6D5DF6', '#8B7CFF', '#22C55E', '#F59E0B', '#EF4444', '#06B6D4', '#EC4899']
+const SUBJECT_COLORS = ['#0F766E', '#166534', '#15803D', '#36544B', '#4B5A57', '#6B7471', '#8A948F']
 
 const defaultForm = {
   subject: '',
@@ -127,7 +127,7 @@ export default function StudySessions() {
           <div className="flex items-center justify-between mb-4">
             <h3 className="font-semibold text-ink">{editingId ? 'Edit Session' : 'New Study Session'}</h3>
             {editingId && (
-              <button onClick={onCancelEdit} className="text-xs text-rose-500 font-medium hover:underline">Cancel edit</button>
+              <button onClick={onCancelEdit} className="text-xs text-stone-600 dark:text-stone-300 font-medium hover:underline">Cancel edit</button>
             )}
           </div>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-3.5">
@@ -135,19 +135,19 @@ export default function StudySessions() {
               <div>
                 <label className="label">Subject</label>
                 <input className="input" placeholder="e.g. DSA, DBMS" {...register('subject', { required: 'Subject is required' })} />
-                {errors.subject && <p className="text-xs text-rose-500 mt-1">{errors.subject.message}</p>}
+                {errors.subject && <p className="text-xs text-stone-600 dark:text-stone-300 mt-1">{errors.subject.message}</p>}
               </div>
               <div>
                 <label className="label">Date</label>
                 <input type="date" className="input" {...register('study_date', { required: 'Date is required' })} />
-                {errors.study_date && <p className="text-xs text-rose-500 mt-1">{errors.study_date.message}</p>}
+                {errors.study_date && <p className="text-xs text-stone-600 dark:text-stone-300 mt-1">{errors.study_date.message}</p>}
               </div>
             </div>
             <div className="grid grid-cols-3 gap-3.5">
               <div>
                 <label className="label">Study (min)</label>
                 <input type="number" min="0" className="input" placeholder="60" {...register('study_time', { required: 'Required', min: { value: 0, message: '≥ 0' } })} />
-                {errors.study_time && <p className="text-xs text-rose-500 mt-1">{errors.study_time.message}</p>}
+                {errors.study_time && <p className="text-xs text-stone-600 dark:text-stone-300 mt-1">{errors.study_time.message}</p>}
               </div>
               <div>
                 <label className="label">Break (min)</label>
@@ -234,7 +234,7 @@ export default function StudySessions() {
                           <button onClick={() => onEdit(s)} className="grid place-items-center w-8 h-8 rounded-lg text-primary-600 hover:bg-primary-50">
                             <FiEdit2 size={15} />
                           </button>
-                          <button onClick={() => setConfirmDelete(s)} className="grid place-items-center w-8 h-8 rounded-lg text-rose-500 hover:bg-rose-50">
+                          <button onClick={() => setConfirmDelete(s)} className="grid place-items-center w-8 h-8 rounded-lg text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-700/30">
                             <FiTrash2 size={15} />
                           </button>
                         </div>
@@ -261,7 +261,7 @@ export default function StudySessions() {
               onClick={(e) => e.stopPropagation()}
               className="card p-6 max-w-sm w-full"
             >
-              <div className="grid place-items-center w-12 h-12 rounded-full bg-rose-50 text-rose-500 mb-3 mx-auto">
+              <div className="grid place-items-center w-12 h-12 rounded-full bg-stone-100 dark:bg-stone-700/30 text-stone-600 dark:text-stone-200 mb-3 mx-auto">
                 <FiTrash2 size={22} />
               </div>
               <h3 className="font-semibold text-ink text-center">Delete this session?</h3>
@@ -270,7 +270,7 @@ export default function StudySessions() {
               </p>
               <div className="flex gap-2 mt-5">
                 <button onClick={() => setConfirmDelete(null)} className="btn-ghost flex-1">Cancel</button>
-                <button onClick={onDelete} className="btn flex-1 bg-rose-500 text-white hover:bg-rose-600">Delete</button>
+                <button onClick={onDelete} className="btn flex-1 bg-stone-700 text-white hover:bg-stone-800 dark:bg-stone-600 dark:hover:bg-stone-500">Delete</button>
               </div>
             </motion.div>
           </motion.div>

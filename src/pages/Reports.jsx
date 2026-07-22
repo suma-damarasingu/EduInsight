@@ -20,7 +20,7 @@ const RANGES = [
   { key: 'month', label: 'Month' }
 ]
 
-const PIE_COLORS = ['#6D5DF6', '#8B7CFF', '#F59E0B', '#22C55E', '#EF4444', '#06B6D4', '#EC4899']
+const PIE_COLORS = ['#0F766E', '#166534', '#15803D', '#36544B', '#4B5A57', '#6B7471', '#8A948F']
 
 export default function Reports() {
   const { profile } = useAuth()
@@ -71,7 +71,7 @@ export default function Reports() {
             <button
               key={r.key}
               onClick={() => setRange(r.key)}
-              className={`px-3.5 py-1.5 rounded-lg text-sm font-medium transition ${range === r.key ? 'bg-gradient-to-r from-primary-500 to-secondary text-white shadow-soft' : 'text-ink-soft hover:bg-bg-soft'}`}
+              className={`px-3.5 py-1.5 rounded-lg text-sm font-medium transition ${range === r.key ? 'bg-gradient-to-r from-primary-700 to-secondary text-white shadow-soft' : 'text-ink-soft hover:bg-bg-soft'}`}
             >
               {r.label}
             </button>
@@ -83,9 +83,9 @@ export default function Reports() {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {sessions ? (
           <>
-            <KPI icon={<FiBarChart2 />} label="Daily Average" value={formatTime(dailyAvg)} color="from-primary-500 to-secondary" />
-            <KPI icon={<FiTarget />} label="Learning Efficiency" value={`${efficiencyVal}%`} color="from-emerald-500 to-teal-400" />
-            <KPI icon={<FiBookOpen />} label="Top Subject" value={top || '—'} color="from-amber-500 to-orange-400" />
+            <KPI icon={<FiBarChart2 />} label="Daily Average" value={formatTime(dailyAvg)} color="from-primary-700 to-primary-500" />
+            <KPI icon={<FiTarget />} label="Learning Efficiency" value={`${efficiencyVal}%`} color="from-secondary to-primary-600" />
+            <KPI icon={<FiBookOpen />} label="Top Subject" value={top || '—'} color="from-stone-700 to-stone-500" />
           </>
         ) : (
           [0,1,2].map((i) => <Skeleton key={i} className="h-28" />)
@@ -100,10 +100,10 @@ export default function Reports() {
           {!sessions ? <Skeleton className="h-64" /> : breakdown.length === 0 ? <Empty /> : (
             <ResponsiveContainer width="100%" height={260}>
               <BarChart data={breakdown} layout="vertical" margin={{ left: 10 }}>
-                <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#EEF2F7" />
-                <XAxis type="number" tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
-                <YAxis type="category" dataKey="name" tick={{ fontSize: 12, fill: '#475569' }} axisLine={false} tickLine={false} width={80} />
-                <Tooltip contentStyle={{ borderRadius: 12, border: '1px solid #E5E7EB', fontSize: 12 }} />
+                <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#D7DDDA" />
+                <XAxis type="number" tick={{ fontSize: 12, fill: '#6B7471' }} axisLine={false} tickLine={false} />
+                <YAxis type="category" dataKey="name" tick={{ fontSize: 12, fill: '#43504D' }} axisLine={false} tickLine={false} width={80} />
+                <Tooltip contentStyle={{ borderRadius: 12, border: '1px solid #D7DDDA', fontSize: 12 }} />
                 <Bar dataKey="value" name="Minutes" radius={[0, 6, 6, 0]}>
                   {breakdown.map((_, i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />)}
                 </Bar>
@@ -118,11 +118,11 @@ export default function Reports() {
           {!sessions ? <Skeleton className="h-64" /> : (
             <ResponsiveContainer width="100%" height={260}>
               <BarChart data={weekly}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#EEF2F7" />
-                <XAxis dataKey="label" tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
-                <Tooltip contentStyle={{ borderRadius: 12, border: '1px solid #E5E7EB', fontSize: 12 }} />
-                <Bar dataKey="study" name="Study" fill="#6D5DF6" radius={[6, 6, 0, 0]} />
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#D7DDDA" />
+                <XAxis dataKey="label" tick={{ fontSize: 12, fill: '#6B7471' }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fontSize: 12, fill: '#6B7471' }} axisLine={false} tickLine={false} />
+                <Tooltip contentStyle={{ borderRadius: 12, border: '1px solid #D7DDDA', fontSize: 12 }} />
+                <Bar dataKey="study" name="Study" fill="#0F766E" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           )}
@@ -134,13 +134,13 @@ export default function Reports() {
           {!sessions ? <Skeleton className="h-64" /> : (
             <ResponsiveContainer width="100%" height={260}>
               <LineChart data={trend}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#EEF2F7" />
-                <XAxis dataKey="label" tick={{ fontSize: 11, fill: '#94A3B8' }} axisLine={false} tickLine={false} interval={1} />
-                <YAxis domain={[0, 100]} tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
-                <Tooltip contentStyle={{ borderRadius: 12, border: '1px solid #E5E7EB', fontSize: 12 }} />
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#D7DDDA" />
+                <XAxis dataKey="label" tick={{ fontSize: 11, fill: '#6B7471' }} axisLine={false} tickLine={false} interval={1} />
+                <YAxis domain={[0, 100]} tick={{ fontSize: 12, fill: '#6B7471' }} axisLine={false} tickLine={false} />
+                <Tooltip contentStyle={{ borderRadius: 12, border: '1px solid #D7DDDA', fontSize: 12 }} />
                 <Legend wrapperStyle={{ fontSize: 12 }} />
-                <Line type="monotone" dataKey="efficiency" name="Efficiency" stroke="#6D5DF6" strokeWidth={2.5} dot={false} />
-                <Line type="monotone" dataKey="focus" name="Focus" stroke="#22C55E" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="efficiency" name="Efficiency" stroke="#0F766E" strokeWidth={2.5} dot={false} />
+                <Line type="monotone" dataKey="focus" name="Focus" stroke="#15803D" strokeWidth={2} dot={false} />
               </LineChart>
             </ResponsiveContainer>
           )}
@@ -153,9 +153,9 @@ export default function Reports() {
             <ResponsiveContainer width="100%" height={260}>
               <PieChart>
                 <Pie data={dist} dataKey="value" nameKey="name" innerRadius={55} outerRadius={90} paddingAngle={3}>
-                  {dist.map((_, i) => <Cell key={i} fill={['#6D5DF6', '#8B7CFF', '#F59E0B'][i]} />)}
+                  {dist.map((_, i) => <Cell key={i} fill={['#0F766E', '#6B7471', '#36544B'][i]} />)}
                 </Pie>
-                <Tooltip contentStyle={{ borderRadius: 12, border: '1px solid #E5E7EB', fontSize: 12 }} />
+                <Tooltip contentStyle={{ borderRadius: 12, border: '1px solid #D7DDDA', fontSize: 12 }} />
                 <Legend wrapperStyle={{ fontSize: 12 }} />
               </PieChart>
             </ResponsiveContainer>
@@ -167,7 +167,7 @@ export default function Reports() {
       <Card className="p-5">
         <div className="flex items-center justify-between gap-3 mb-3">
           <div className="flex items-center gap-2">
-            <div className="grid place-items-center w-9 h-9 rounded-xl bg-gradient-to-br from-primary-500 to-secondary text-white">
+            <div className="grid place-items-center w-9 h-9 rounded-xl bg-gradient-to-br from-primary-700 to-secondary text-white">
               <FiCpu size={18} />
             </div>
             <div>

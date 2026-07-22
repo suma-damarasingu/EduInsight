@@ -36,7 +36,7 @@ export function ToastProvider({ children }) {
           const Icon = t.type === 'success' ? FiCheckCircle : t.type === 'error' ? FiAlertCircle : FiInfo
           const color =
             t.type === 'success' ? 'text-emerald-600 bg-emerald-50 border-emerald-200'
-            : t.type === 'error' ? 'text-rose-600 bg-rose-50 border-rose-200'
+            : t.type === 'error' ? 'text-stone-700 bg-stone-100 border-stone-300'
             : 'text-primary-600 bg-primary-50 border-primary-200'
           return (
             <div key={t.id} className={`card flex items-start gap-2.5 px-3.5 py-3 text-sm ${color}`}>

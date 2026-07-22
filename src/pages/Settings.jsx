@@ -46,7 +46,7 @@ export default function Settings() {
 
       <Card className="p-6">
         <div className="flex items-center gap-4 mb-6">
-          <div className="grid place-items-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary text-white text-xl font-bold shadow-soft">
+          <div className="grid place-items-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-700 to-secondary text-white text-xl font-bold shadow-soft">
             {(profile?.full_name || 'S').split(' ').map((p) => p[0]).slice(0, 2).join('').toUpperCase()}
           </div>
           <div>
@@ -77,10 +77,10 @@ export default function Settings() {
         </div>
       </Card>
 
-      <Card className="p-6 border-rose-200">
+      <Card className="p-6 border-stone-300 dark:border-stone-700">
         <h3 className="font-semibold text-ink">Danger Zone</h3>
         <p className="text-sm text-ink-muted mt-1">Sign out of your EduInsight account on this device.</p>
-        <button onClick={logout} className="mt-4 btn bg-rose-500 text-white hover:bg-rose-600">
+        <button onClick={logout} className="mt-4 btn bg-stone-700 text-white hover:bg-stone-800 dark:bg-stone-600 dark:hover:bg-stone-500">
           <FiLogOut /> Logout
         </button>
       </Card>

@@ -225,7 +225,7 @@ export default function AICoach() {
       <div className="flex items-center justify-between gap-3">
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold text-ink dark:text-slate-100 flex items-center gap-2">
-            <FiCpu className="text-primary-600 dark:text-indigo-300" /> AI Coach
+            <FiCpu className="text-primary-700 dark:text-teal-200" /> AI Coach
           </h1>
           <p className="text-ink-muted dark:text-slate-400 mt-1">Your personal learning mentor for academics, interviews, quizzes, and plans.</p>
         </div>
@@ -257,14 +257,14 @@ export default function AICoach() {
                   <div
                     key={c.id}
                     onClick={() => selectChat(c)}
-                    className={`group flex items-center gap-2 rounded-xl px-3 py-2.5 cursor-pointer transition ${activeChat?.id === c.id ? 'bg-primary-50 text-primary-700 dark:bg-primary-500/20 dark:text-indigo-100' : 'hover:bg-bg-soft dark:hover:bg-slate-800 text-ink-soft dark:text-slate-300'}`}
+                    className={`group flex items-center gap-2 rounded-xl px-3 py-2.5 cursor-pointer transition ${activeChat?.id === c.id ? 'bg-primary-50 text-primary-700 dark:bg-primary-500/20 dark:text-teal-100' : 'hover:bg-bg-soft dark:hover:bg-slate-800 text-ink-soft dark:text-slate-300'}`}
                   >
                     <FiMessageSquare size={15} className="shrink-0" />
                     <div className="flex-1 min-w-0">
                       <div className="text-sm font-medium truncate">{c.title || 'New Chat'}</div>
                       <div className="text-[10px] text-ink-muted dark:text-slate-400">{new Date(c.updated_at).toLocaleDateString()}</div>
                     </div>
-                    <button type="button" aria-label={`Delete ${c.title || 'chat'}`} onClick={(e) => { e.stopPropagation(); removeChat(c.id) }} className="opacity-0 group-hover:opacity-100 text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-500/10 rounded p-1">
+                    <button type="button" aria-label={`Delete ${c.title || 'chat'}`} onClick={(e) => { e.stopPropagation(); removeChat(c.id) }} className="opacity-0 group-hover:opacity-100 text-stone-600 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-700/30 rounded p-1">
                       <FiTrash2 size={13} />
                     </button>
                   </div>
@@ -277,7 +277,7 @@ export default function AICoach() {
         <Card className="flex flex-col h-full overflow-hidden">
           {!activeChat && messages.length === 0 ? (
             <div className="flex-1 flex flex-col items-center justify-center p-6 text-center">
-              <div className="grid place-items-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-secondary text-white mb-4">
+              <div className="grid place-items-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-700 to-secondary text-white mb-4">
                 <FiZap size={28} />
               </div>
               <h3 className="font-semibold text-ink dark:text-slate-100 text-lg">Ask your AI Coach anything</h3>
@@ -292,7 +292,7 @@ export default function AICoach() {
                     onClick={() => send(s.prompt)}
                     className="text-left p-3 rounded-xl border border-line dark:border-darkbg-line hover:border-primary-300 hover:bg-primary-50/50 dark:hover:bg-primary-500/10 transition group"
                   >
-                    <div className="text-sm font-semibold text-ink dark:text-slate-100 group-hover:text-primary-600 dark:group-hover:text-indigo-300">{s.title}</div>
+                    <div className="text-sm font-semibold text-ink dark:text-slate-100 group-hover:text-primary-700 dark:group-hover:text-teal-200">{s.title}</div>
                     <div className="text-xs text-ink-muted dark:text-slate-400 line-clamp-1">{s.prompt}</div>
                   </button>
                 ))}
@@ -372,7 +372,7 @@ function ChatBubble({ role, content, streaming, ts, onRegenerate }) {
       <div
         className={`max-w-[85%] sm:max-w-[75%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
           isUser
-            ? 'bg-gradient-to-br from-primary-500 to-secondary text-white rounded-br-md'
+            ? 'bg-gradient-to-br from-primary-700 to-secondary text-white rounded-br-md'
             : 'bg-white dark:bg-darkbg-surface border border-line dark:border-darkbg-line text-ink dark:text-slate-100 rounded-bl-md shadow-card'
         }`}
       >

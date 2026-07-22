@@ -16,7 +16,7 @@ import {
 } from '../lib/stats'
 import { formatTime, greeting, formatDate } from '../lib/utils'
 
-const SUBJECT_COLORS = ['#6D5DF6', '#8B7CFF', '#22C55E', '#F59E0B', '#EF4444', '#06B6D4', '#EC4899']
+const SUBJECT_COLORS = ['#0F766E', '#166534', '#15803D', '#36544B', '#4B5A57', '#6B7471', '#8A948F']
 
 export default function Overview() {
   const { profile } = useAuth()
@@ -42,7 +42,7 @@ export default function Overview() {
   const weekly = useMemo(() => (sessions ? weeklySeries(sessions, 6) : []), [sessions])
   const recent = useMemo(() => (sessions ? sessions.slice(0, 5) : []), [sessions])
 
-  const focusData = [{ name: 'Focus', value: stats?.focus || 0, fill: '#6D5DF6' }]
+  const focusData = [{ name: 'Focus', value: stats?.focus || 0, fill: '#0F766E' }]
 
   return (
     <div className="space-y-6">
@@ -63,10 +63,10 @@ export default function Overview() {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {stats ? (
           <>
-            <StatCard icon={<FiClock />} label="Study Time" value={`${Math.round(stats.studyTime)}m`} sub={formatTime(stats.studyTime)} color="from-primary-500 to-secondary" />
-            <StatCard icon={<FiTarget />} label="Focus Score" value={`${stats.focus}%`} sub="avg focus ratio" color="from-emerald-500 to-teal-400" />
-            <StatCard icon={<FiBookOpen />} label="Total Sessions" value={stats.count} sub="logged sessions" color="from-amber-500 to-orange-400" />
-            <StatCard icon={<FiZap />} label="Learning Streak" value={`${stats.streak} day${stats.streak === 1 ? '' : 's'}`} sub="consecutive study days" color="from-sky-500 to-indigo-400" />
+            <StatCard icon={<FiClock />} label="Study Time" value={`${Math.round(stats.studyTime)}m`} sub={formatTime(stats.studyTime)} color="from-primary-700 to-primary-500" />
+            <StatCard icon={<FiTarget />} label="Focus Score" value={`${stats.focus}%`} sub="avg focus ratio" color="from-secondary to-primary-600" />
+            <StatCard icon={<FiBookOpen />} label="Total Sessions" value={stats.count} sub="logged sessions" color="from-stone-700 to-stone-500" />
+            <StatCard icon={<FiZap />} label="Learning Streak" value={`${stats.streak} day${stats.streak === 1 ? '' : 's'}`} sub="consecutive study days" color="from-teal-700 to-emerald-700" />
           </>
         ) : (
           [0,1,2,3].map((i) => <Skeleton key={i} className="h-32" />)
@@ -86,13 +86,13 @@ export default function Overview() {
           {!sessions ? <Skeleton className="h-64" /> : (
             <ResponsiveContainer width="100%" height={260}>
               <BarChart data={weekly} barGap={4}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#EEF2F7" />
-                <XAxis dataKey="label" tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
-                <YAxis tick={{ fontSize: 12, fill: '#94A3B8' }} axisLine={false} tickLine={false} />
-                <Tooltip contentStyle={{ borderRadius: 12, border: '1px solid #E5E7EB', fontSize: 12 }} />
-                <Bar dataKey="study" name="Study" fill="#6D5DF6" radius={[6, 6, 0, 0]} />
-                <Bar dataKey="break" name="Break" fill="#8B7CFF" radius={[6, 6, 0, 0]} />
-                <Bar dataKey="distract" name="Distraction" fill="#F59E0B" radius={[6, 6, 0, 0]} />
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#D7DDDA" />
+                <XAxis dataKey="label" tick={{ fontSize: 12, fill: '#6B7471' }} axisLine={false} tickLine={false} />
+                <YAxis tick={{ fontSize: 12, fill: '#6B7471' }} axisLine={false} tickLine={false} />
+                <Tooltip contentStyle={{ borderRadius: 12, border: '1px solid #D7DDDA', fontSize: 12 }} />
+                <Bar dataKey="study" name="Study" fill="#0F766E" radius={[6, 6, 0, 0]} />
+                <Bar dataKey="break" name="Break" fill="#6B7471" radius={[6, 6, 0, 0]} />
+                <Bar dataKey="distract" name="Distraction" fill="#36544B" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           )}
@@ -106,7 +106,7 @@ export default function Overview() {
               <ResponsiveContainer width="100%" height={220}>
                 <RadialBarChart innerRadius="70%" outerRadius="100%" data={focusData} startAngle={90} endAngle={-270}>
                   <RadialBar background dataKey="value" cornerRadius={20}>
-                    <Cell fill="#6D5DF6" />
+                    <Cell fill="#0F766E" />
                   </RadialBar>
                 </RadialBarChart>
               </ResponsiveContainer>
@@ -164,7 +164,7 @@ export default function Overview() {
           )}
         </Card>
 
-        <Card className="p-5 bg-gradient-to-br from-primary-500 to-secondary text-white relative overflow-hidden">
+        <Card className="p-5 bg-gradient-to-br from-primary-700 to-secondary text-white relative overflow-hidden">
           <div className="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-white/10" />
           <div className="absolute -right-4 top-10 w-20 h-20 rounded-full bg-white/10" />
           <div className="relative">

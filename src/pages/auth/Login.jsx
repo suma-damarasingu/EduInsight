@@ -31,7 +31,7 @@ export default function Login() {
   return (
     <div className="min-h-screen grid lg:grid-cols-2 bg-bg">
       {/* Left brand panel */}
-      <div className="hidden lg:flex relative overflow-hidden bg-gradient-to-br from-primary-600 via-primary-500 to-secondary text-white p-12 flex-col justify-between">
+      <div className="hidden lg:flex relative overflow-hidden bg-gradient-to-br from-darkbg via-primary-800 to-secondary text-white p-12 flex-col justify-between">
         <div className="flex items-center gap-2.5">
           <div className="grid place-items-center w-10 h-10 rounded-xl bg-white/15 backdrop-blur">
             <FiZap size={22} />
@@ -73,7 +73,7 @@ export default function Login() {
           className="w-full max-w-md"
         >
           <div className="lg:hidden flex items-center gap-2.5 mb-8">
-            <div className="grid place-items-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-secondary text-white">
+            <div className="grid place-items-center w-10 h-10 rounded-xl bg-gradient-to-br from-primary-700 to-secondary text-white">
               <FiZap size={22} />
             </div>
             <div className="font-bold text-lg text-ink">EduInsight</div>
@@ -93,7 +93,7 @@ export default function Login() {
                   {...register('email', { required: 'Email is required', pattern: { value: /^[^@\s]+@[^@\s]+\.[^@\s]+$/, message: 'Invalid email' } })}
                 />
               </div>
-              {errors.email && <p className="text-xs text-rose-500 mt-1">{errors.email.message}</p>}
+              {errors.email && <p className="text-xs text-stone-600 dark:text-stone-300 mt-1">{errors.email.message}</p>}
             </div>
             <div>
               <label className="label">Password</label>
@@ -106,7 +106,7 @@ export default function Login() {
                   {...register('password', { required: 'Password is required', minLength: { value: 6, message: 'Min 6 characters' } })}
                 />
               </div>
-              {errors.password && <p className="text-xs text-rose-500 mt-1">{errors.password.message}</p>}
+              {errors.password && <p className="text-xs text-stone-600 dark:text-stone-300 mt-1">{errors.password.message}</p>}
             </div>
             <button type="submit" disabled={submitting} className="btn-primary w-full">
               {submitting ? 'Signing in…' : 'Sign In'}
